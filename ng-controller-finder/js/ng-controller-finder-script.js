@@ -182,7 +182,7 @@ function wait_for_script_load(look_for, callback) {
         var infoButtomHtml = "<span><a href='" + config.paths.webpage + "'><img src='"+ config.paths.ionic_icons + config.img.github_black +"'>" + config.paths.webpage + "</a><span><br>" + "<span><a href='" + config.paths.github_repository + "'><img src='" + config.paths.ionic_icons + config.img.github_white +"'>" + config.paths.github_repository + "</a><span>"
         ;
         document.getElementById('option-ng-controller-text').innerHTML = infoButtomHtml;
-    });
+    });  
 
 })();
 
