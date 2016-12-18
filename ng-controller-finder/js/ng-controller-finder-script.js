@@ -28,7 +28,7 @@ function NgControllerFinder(eventListenerName){
 }
 
 NgControllerFinder.prototype.addInfoText = function () {
-    document.getElementById('option-ng-controller-text').innerHTML = 'aaaaaaaaaaaaaaaaaaa';
+    // document.getElementById('option-ng-controller-text').innerHTML = 'aaaaaaaaaaaaaaaaaaa';
     // document.getElementById('option-ng-controller-text').innerHTML = 'aaaaaaaa';
 };
 
@@ -172,6 +172,13 @@ function wait_for_script_load(look_for, callback) {
     //Listeners
     closeBtn.addEventListener('click', ngControllerFinder.removePlugin);
     infoBtn.addEventListener('click', ngControllerFinder.addInfoText);
+
+    infoBtn.addEventListener('click', function(){
+        alert();
+        document.getElementById('option-ng-controller-text').innerHTML = 'aaaaaaaaaaaaaaaaaaa';
+    });
+
+
 
 
 })();
