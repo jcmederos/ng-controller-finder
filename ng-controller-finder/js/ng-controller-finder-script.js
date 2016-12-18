@@ -1,12 +1,12 @@
 
 var config = {
 	paths : {
-		ng_controller_finder : '//jcmederos.github.io/ng-controller-finder/ng-controller-finder/'
+		ng_controller_finder : '//jcmederos.github.io/ng-controller-finder/ng-controller-finder/',
+		ionic_icons : 'jcmederos.github.io/ng-controller-finder/ng-controller-finder/bower_components/Ionicons/png/512/'
 	},
-	img_path : '//jcmederos.github.io/ng-controller-finder/ng-controller-finder/bower_components/Ionicons/png/512/',
 	css_path : '//jcmederos.github.io/ng-controller-finder/ng-controller-finder/ng-controller-finder/css/',
 	ng_controller_finder_styles : 'ng-controller-finder.css',
-	img_src:{
+	img:{
 		angular : '//angular.io/resources/images/logos/angular2/angular.png',
 		click : 'information-circled.png',
 		close : 'close-circled.png'
@@ -67,9 +67,9 @@ function wait_for_script_load(look_for, callback) {
 (function(){
     
             var html =  "<div id='option-" + config.options_id.angular + "' class='options angular-not-found center-element'><img src='" + config.img_src.angular + "' class='option-img'></div>" + 
-                        "<div id='option-"  + config.options_id.tap +  "' class='options angular-not-found center-element'><img src='" + config.img_path + config.img_src.click + "'  class='option-img'></div>" +
+                        "<div id='option-"  + config.options_id.tap +  "' class='options angular-not-found center-element'><img src='" + config.paths.ionic_icons + config.img.click + "'  class='option-img'></div>" +
                         "<div id='option-" + config.options_id.ng_controller_text + "' class='center-element'>Click the element to find its <b style='padding:0 4px;'> ng-controller </b> </div>" +
-                        "<div id='option-" + config.options_id.close + "' class='options center-element'><img src='" + config.img_path + + config.img_src.close + "'  class='option-img'></div>"
+                        "<div id='option-" + config.options_id.close + "' class='options center-element'><img src='" + config.paths.ionic_icons + config.img.close + "'  class='option-img'></div>"
             ;
     
             var s = document.createElement('div');
