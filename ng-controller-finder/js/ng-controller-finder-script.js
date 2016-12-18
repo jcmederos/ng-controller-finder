@@ -1,6 +1,4 @@
-
-
-
+var ngControllerFinder;
 
 function NgControllerFinder(eventListenerName){
 	this.eventListenerName = eventListenerName;
@@ -27,24 +25,36 @@ NgControllerFinder.prototype.createPlugin = function(){
 
 NgControllerFinder.prototype.addListener = function (){
         
-        window.addEventListener(this.eventListenerName, function(e){
-            console.log(e.target);
-            
-            
-            if(e.target.getAttribute('class').indexOf('option-') === -1){
-                console.log('Click event over : ' + e.target.getAttribute('id'));
-
-                var a = this.getParentNgController(e.target);
-                if (a){ 
-                    document.getElementById('option-ng-controller-text').innerHTML = a.getAttribute('ng-controller');
-                    console.log('ng-controller: ' + a.getAttribute('ng-controller'));
-                }
-                  
-            }
-            
-        });
+        window.addEventListener(this.eventListenerName, this.pluginListener);
 
 };
+
+NgControllerFinder.prototype.removeListener = function (){
+
+    window.removeEventListener(this.eventListenerName, this.pluginListener);
+
+};
+
+
+NgControllerFinder.prototype.pluginListener = function(e){
+
+    var event = e || window.event;
+    console.log(e.target);
+
+
+    if(event.target.getAttribute('class').indexOf('option-') === -1){
+        console.log('Click event over : ' + event.target.getAttribute('id'));
+
+        var a = ngControllerFinder.getParentNgController(event.target);
+        if (a){
+            document.getElementById('option-ng-controller-text').innerHTML = a.getAttribute('ng-controller');
+            console.log('ng-controller: ' + a.getAttribute('ng-controller'));
+        }
+
+    }
+
+};
+
 
 NgControllerFinder.prototype.getParentNgController = function(el) {
         var all = '';
@@ -71,8 +81,6 @@ NgControllerFinder.prototype.getParentNgController = function(el) {
         
         return null;
 };
-
-
 
 var config = {
 	paths : {
@@ -135,7 +143,7 @@ function wait_for_script_load(look_for, callback) {
 
 (function(){
 
-	var ngControllerFinder = new NgControllerFinder('click');
+	ngControllerFinder = new NgControllerFinder('click');
 	ngControllerFinder.createPlugin();
 	
 	importCSS(config.paths.ng_controller_finder + 'css/' + 'ng-controller-finder.css');
@@ -148,6 +156,8 @@ function wait_for_script_load(look_for, callback) {
 		document.getElementById('option-ng-controller-text').innerHTML = 'Angular is not loaded';
 		document.getElementById('option-ng-controller-text').style.color = 'red';
 	}
+
+    ngControllerFinder.addListener();
 
 })();
 
