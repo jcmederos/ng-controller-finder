@@ -32,8 +32,8 @@ function NgControllerFinder(eventListenerName){
 }
 
 NgControllerFinder.prototype.addInfoText = function () {
-    // document.getElementById('option-' + config.options_id.ng_controller_text).innerHTML = this.infoButtomHtml;
-    document.getElementById('option-ng-controller-text').innerHTML = 'aaaaaaaa';
+    document.getElementById('option-' + config.options_id.ng_controller_text).innerHTML = this.infoButtomHtml;
+    // document.getElementById('option-ng-controller-text').innerHTML = 'aaaaaaaa';
 };
 
 NgControllerFinder.prototype.createPlugin = function(){
