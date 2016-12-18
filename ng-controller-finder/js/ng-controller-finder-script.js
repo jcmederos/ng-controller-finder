@@ -1,7 +1,7 @@
 
 var config = {
 	paths : {
-		ng_controller_finder : '//jcmederos.github.io/ng-controller-finder/ng-controller-finder/ng-controller-finder/'
+		ng_controller_finder : '//jcmederos.github.io/ng-controller-finder/ng-controller-finder/'
 	},
 	img_path : '//jcmederos.github.io/ng-controller-finder/ng-controller-finder/bower_components/Ionicons/png/512/',
 	css_path : '//jcmederos.github.io/ng-controller-finder/ng-controller-finder/ng-controller-finder/css/',
