@@ -68,8 +68,8 @@ function wait_for_script_load(look_for, callback) {
 
 (function(){
     
-            var html =  "<div id='option-" + config.options_id.angular + "' class='options angular-not-found center-element'><img src='" + config.img.angular + "' class='option-img'></div>" + 
-                        "<div id='option-"  + config.options_id.tap +  "' class='options angular-not-found center-element'><img src='" + config.paths.ionic_icons + config.img.click + "'  class='option-img'></div>" +
+            var html =  "<div id='option-" + config.options_id.angular + "' class='options center-element'><img src='" + config.img.angular + "' class='option-img'></div>" + 
+                        "<div id='option-"  + config.options_id.tap +  "' class='options center-element'><img src='" + config.paths.ionic_icons + config.img.click + "'  class='option-img'></div>" +
                         "<div id='option-" + config.options_id.ng_controller_text + "' class='center-element'>Click the element to find its <b style='padding:0 4px;'> ng-controller </b> </div>" +
                         "<div id='option-" + config.options_id.close + "' class='options center-element'><img src='" + config.paths.ionic_icons + config.img.close + "'  class='option-img'></div>"
             ;
@@ -81,18 +81,7 @@ function wait_for_script_load(look_for, callback) {
             document.body.appendChild(s);
 
     importCSS(config.paths.ng_controller_finder + 'css/' + 'ng-controller-finder.css');
-    
-    /*
-    if(jQuery){
-        addListener();
-    }else{
-        importJS('https://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js', 'jQuery', function() { // Load everything else when it is done.
-            jQuery.noConflict();
-            addListener();
-        });
-    }
-    */
-    
+        
     if(window.angular){
         console.log("ng-closest-controller : ANGULAR was loaded");
         addListener();
@@ -110,11 +99,6 @@ function wait_for_script_load(look_for, callback) {
             
             if(e.target.getAttribute('class').indexOf('option-') === -1){
                 console.log('------------------------'+e.target.getAttribute('id'));
-
-                // console.log($(e.target).closest('[ng-controller]').attr('ng-controller'));
-                
-                //if(jQuery){}
-                //console.log('ng-controller: ' + $(e.target).closest('[ng-controller]').attr('ng-controller'));
                 
                 //else
                 var a = findUpTag(e.target);
