@@ -1,4 +1,54 @@
 
+
+
+
+function NgControllerFinder(eventListenerName){
+	this.eventListenerName = eventListenerName;
+
+}
+
+NgControllerFinder.prototype.createPlugin = function(){
+	
+            var html =  "<div id='option-" + config.options_id.angular + "' class='options center-element'><img src='" + config.img.angular + "' class='option-img'></div>" + 
+                        "<div id='option-"  + config.options_id.tap +  "' class='options center-element'><img src='" + config.paths.ionic_icons + config.img.click + "'  class='option-img'></div>" +
+                        "<div id='option-" + config.options_id.ng_controller_text + "' class='center-element'>Click the element to find its <b style='padding:0 4px;'> ng-controller </b> </div>" +
+                        "<div id='option-" + config.options_id.close + "' class='options center-element'><img src='" + config.paths.ionic_icons + config.img.close + "'  class='option-img'></div>"
+            ;
+    
+            var s = document.createElement('div');
+            s.setAttribute('id', 'ng-controller-finder');
+            s.innerHTML = html;
+
+	document.body.appendChild(s);
+
+}
+
+
+
+NgControllerFinder.prototype.addListener = function (){
+        
+        window.addEventListener(this.eventListenerName, function(e){
+            console.log(e.target);
+            
+            
+            if(e.target.getAttribute('class').indexOf('option-') === -1){
+                console.log('------------------------'+e.target.getAttribute('id'));
+                
+                //else
+                var a = findUpTag(e.target);
+                if (a){ 
+                    document.getElementById('option-ng-controller-text').innerHTML = a.getAttribute('ng-controller');
+                    console.log('ng-controller: ' + a.getAttribute('ng-controller'));
+                }
+                  
+            }
+            
+        });
+}
+
+
+
+
 var config = {
 	paths : {
 		webpage : '//jcmederos.github.io/ng-controller-finder/',
@@ -11,7 +61,7 @@ var config = {
 	img:{
 		angular : '//angular.io/resources/images/logos/angular2/angular.png',
 		click : 'information-circled.png',
-		close : 'close-circled.png'
+		close : 'ios7-close-outline.png'
 	},
 	options_id : {
 		angular : 'angular' ,
@@ -67,51 +117,23 @@ function wait_for_script_load(look_for, callback) {
 }
 
 (function(){
-    
-            var html =  "<div id='option-" + config.options_id.angular + "' class='options center-element'><img src='" + config.img.angular + "' class='option-img'></div>" + 
-                        "<div id='option-"  + config.options_id.tap +  "' class='options center-element'><img src='" + config.paths.ionic_icons + config.img.click + "'  class='option-img'></div>" +
-                        "<div id='option-" + config.options_id.ng_controller_text + "' class='center-element'>Click the element to find its <b style='padding:0 4px;'> ng-controller </b> </div>" +
-                        "<div id='option-" + config.options_id.close + "' class='options center-element'><img src='" + config.paths.ionic_icons + config.img.close + "'  class='option-img'></div>"
-            ;
-    
-            var s = document.createElement('div');
-            s.setAttribute('id', 'closest-ng-controller');
-            s.innerHTML = html;
-            
-            document.body.appendChild(s);
 
-    importCSS(config.paths.ng_controller_finder + 'css/' + 'ng-controller-finder.css');
+
+	var ngControllerFinder = new NgControllerFinder('click');
+	ngControllerFinder.createPlugin();
+	
+	importCSS(config.paths.ng_controller_finder + 'css/' + 'ng-controller-finder.css');
         
-    if(window.angular){
-        console.log("ng-closest-controller : ANGULAR was loaded");
-        addListener();
-    }else{
-        console.log("ng-closest-controller : ANGULAR NOT loaded");
-        document.getElementById('option-ng-controller-text').innerHTML = 'Angular is not loaded';
-        document.getElementById('option-ng-controller-text').style.color = 'red';
-    }
+	if(window.angular){
+		console.log("ng-closest-controller : ANGULAR was loaded");
+		ngControllerFinder.addListener();
+	}else{
+		console.log("ng-closest-controller : ANGULAR NOT loaded");
+		document.getElementById('option-ng-controller-text').innerHTML = 'Angular is not loaded';
+		document.getElementById('option-ng-controller-text').style.color = 'red';
+	}
             
-    function addListener(){
-        
-        window.addEventListener('click', function(e){
-            console.log(e.target);
-            
-            
-            if(e.target.getAttribute('class').indexOf('option-') === -1){
-                console.log('------------------------'+e.target.getAttribute('id'));
-                
-                //else
-                var a = findUpTag(e.target);
-                if (a){ 
-                    document.getElementById('option-ng-controller-text').innerHTML = a.getAttribute('ng-controller');
-                    console.log('ng-controller: ' + a.getAttribute('ng-controller'));
-                }
-                
-                 // createNgClosestControllerContainer();   
-            }
-            
-        });
-    }
+
     
     function findUpTag(el) {
         var all = '';

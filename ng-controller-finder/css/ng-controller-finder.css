@@ -1,4 +1,4 @@
-#closest-ng-controller{
+#ng-controller-finder{
     background: white;
     height: 40px;
     width: 50%;
@@ -13,21 +13,21 @@
     border: solid 1px black;
 }
 
-#closest-ng-controller div{
+#ng-controller-finder div{
    float: left;
 }
 
 
-#closest-ng-controller .options:hover{
+#ng-controller-finder .options:hover{
     cursor: pointer;
 }
 
-#closest-ng-controller .options{
+#ng-controller-finder .options{
     width:  5%;
     height: 90%;
 }
 
-#closest-ng-controller .options img{
+#ng-controller-finder .options img{
     height: 100%;
 }
 
@@ -37,7 +37,7 @@
 }
 
 
-#closest-ng-controller #option-ng-controller-text{
+#ng-controller-finder #option-ng-controller-text{
     min-width:  85%;
     height: 100%;    
 }
