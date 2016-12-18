@@ -32,6 +32,10 @@ function NgControllerFinder(eventListenerName){
 
 }
 
+NgControllerFinder.prototype.addInfoText = function () {
+    document.getElementById('option-'+config.options_id.ng_controller_text).innerHTML = this.infoButtomHtml;
+};
+
 NgControllerFinder.prototype.createPlugin = function(){
 	
             var html =  "<div id='option-" + config.options_id.angular + "' class='options center-element'><img src='" + config.img.angular + "' class='option-img'></div>" + 
@@ -171,13 +175,12 @@ function wait_for_script_load(look_for, callback) {
 
     ngControllerFinder.addPluginListener();
 
-    var closeBtn = document.querySelectorAll('#option-close img')[0];
-    var infoBtn = document.querySelectorAll('#option-info img')[0];
-
+    var closeBtn = document.querySelector('#option-close img');
+    var infoBtn = document.querySelector('#option-info img');
 
     //Listeners
     closeBtn.addEventListener('click', ngControllerFinder.removePlugin);
-    infoBtn.addEventListener('click', ngControllerFinder.removePlugin);
+    infoBtn.addEventListener('click', ngControllerFinder.addInfoText);
 
 
 })();
