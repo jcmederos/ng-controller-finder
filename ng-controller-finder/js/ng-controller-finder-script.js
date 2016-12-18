@@ -25,11 +25,10 @@ var config = {
 function NgControllerFinder(eventListenerName){
 	this.eventListenerName = eventListenerName;
     this.infoButtomHtml = config.paths.webpage;
-
 }
 
 NgControllerFinder.prototype.addInfoText = function () {
-    document.getElementById('option-' + config.options_id.ng_controller_text).innerHTML = this.infoButtomHtml;
+    document.getElementById('option-ng-controller-text').innerHTML = this.infoButtomHtml;
     // document.getElementById('option-ng-controller-text').innerHTML = 'aaaaaaaa';
 };
 
@@ -52,19 +51,14 @@ NgControllerFinder.prototype.createPlugin = function(){
 
 
 NgControllerFinder.prototype.addPluginListener = function (){
-        
         window.addEventListener(this.eventListenerName, this.pluginListener);
-
 };
 
 NgControllerFinder.prototype.removePluginListener = function (){
-
     window.removeEventListener(this.eventListenerName, this.pluginListener);
-
 };
 
 NgControllerFinder.prototype.removePlugin = function (){
-
     var pluginElement = document.getElementById('ng-controller-finder');
     pluginElement.parentNode.removeChild(pluginElement);
 };
