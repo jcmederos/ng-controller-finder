@@ -2,6 +2,7 @@
 var config = {
 	paths : {
 		webpage : '//jcmederos.github.io/ng-controller-finder/',
+		github_repository : '//jcmederos.github.io/ng-controller-finder/',
 		ng_controller_finder : '//jcmederos.github.io/ng-controller-finder/ng-controller-finder/',
 		ionic_icons : '//jcmederos.github.io/ng-controller-finder/bower_components/Ionicons/png/512/'
 	},
@@ -78,8 +79,7 @@ function wait_for_script_load(look_for, callback) {
             s.innerHTML = html;
             
             document.body.appendChild(s);
-    
-    // importCSS('https://dv0akt2986vzh.cloudfront.net/stable/lib/selectorgadget.css');
+
     importCSS(config.paths.ng_controller_finder + 'css/' + 'ng-controller-finder.css');
     
     /*
