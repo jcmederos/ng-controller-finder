@@ -3,7 +3,7 @@ var ngControllerFinder;
 var config = {
     paths : {
         webpage : '//jcmederos.github.io/ng-controller-finder/',
-        github_repository : '//jcmederos.github.io/ng-controller-finder/',
+        github_repository : '//github.com/jcmederos/ng-controller-finder/',
         ng_controller_finder : '//jcmederos.github.io/ng-controller-finder/ng-controller-finder/',
         ionic_icons : '//jcmederos.github.io/ng-controller-finder/bower_components/Ionicons/png/512/'
     },
@@ -12,7 +12,9 @@ var config = {
     img:{
         angular : '//angular.io/resources/images/logos/angular2/angular.png',
         info : 'information-circled.png',
-        close : 'ios7-close-outline.png'
+        close : 'ios7-close-outline.png',
+        github_black : 'social-github.png',
+        github_white : 'social-github-outline.png'
     },
     options_id : {
         angular : 'angular' ,
@@ -177,7 +179,7 @@ function wait_for_script_load(look_for, callback) {
     // infoBtn.addEventListener('click', ngControllerFinder.addInfoText);
 
     infoBtn.addEventListener('click', function(){
-        var infoButtomHtml = "<span><a href='" + config.paths.webpage + "'><img>" + config.paths.webpage + "</a><span><br>" + "<span><a href='" + config.paths.github_repository + "'><img>" + config.paths.github_repository + "</a><span>"
+        var infoButtomHtml = "<span><a href='" + config.paths.webpage + "'><img src='"+ config.paths.ionic_icons + config.img.github_black +"'>" + config.paths.webpage + "</a><span><br>" + "<span><a href='" + config.paths.github_repository + "'><img src='" + config.paths.ionic_icons + config.img.github_white +"'>" + config.paths.github_repository + "</a><span>"
         ;
         document.getElementById('option-ng-controller-text').innerHTML = infoButtomHtml;
     });
