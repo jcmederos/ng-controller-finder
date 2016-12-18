@@ -24,16 +24,16 @@ var config = {
 
 function NgControllerFinder(eventListenerName){
 	this.eventListenerName = eventListenerName;
-
-    this.infoButtomHtml = "<span><a href='" + config.paths.webpage + "'><img src=''>" + config.paths.webpage + "</a><span> <br>" +
-        "<span><a href='" + config.paths.github_repository + "'><img src=''>" + config.paths.github_repository + "</a><span>"
+    this.infoButtomHtml =
+        "<span><a href='" + config.paths.webpage + "'><img>" + config.paths.webpage + "</a><span><br>" +
+        "<span><a href='" + config.paths.github_repository + "'><img>" + config.paths.github_repository + "</a><span>"
     ;
-
 
 }
 
 NgControllerFinder.prototype.addInfoText = function () {
-    document.getElementById('option-'+config.options_id.ng_controller_text).innerHTML = this.infoButtomHtml;
+    // document.getElementById('option-' + config.options_id.ng_controller_text).innerHTML = this.infoButtomHtml;
+    document.getElementById('option-ng-controller-text').innerHTML = this.infoButtomHtml;
 };
 
 NgControllerFinder.prototype.createPlugin = function(){
