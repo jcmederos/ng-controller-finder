@@ -49,15 +49,9 @@ function importCSS(href, look_for, onload) {
 
 
 function createNgClosestControllerContainer(){
-    
     var s = document.createElement('div');
-    s.setAttribute('id', 'closest-ng-controller');
-    // s.setAttribute('zIndex', '99999');
-    // s.setAttribute('with', '100px');
-    // s.setAttribute('height', '20px');
-    
+    s.setAttribute('id', 'closest-ng-controller');   
     document.body.appendChild(s);
-    console.log("aaaaaaaaaaaaaaaaaa");
 }
 
 
@@ -85,7 +79,7 @@ function wait_for_script_load(look_for, callback) {
             document.body.appendChild(s);
     
     // importCSS('https://dv0akt2986vzh.cloudfront.net/stable/lib/selectorgadget.css');
-    importCSS(config.paths.ng_controller_finder + '/css/' + 'ng-controller-finder.css');
+    importCSS(config.paths.ng_controller_finder + 'css/' + 'ng-controller-finder.css');
     
     /*
     if(jQuery){
