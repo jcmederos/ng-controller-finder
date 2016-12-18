@@ -26,7 +26,7 @@ function NgControllerFinder(eventListenerName){
 	this.eventListenerName = eventListenerName;
 
     this.infoButtomHtml = "<span><a href='" + config.paths.webpage + "'><img src=''>" + config.paths.webpage + "</a><span> <br>" +
-        "<span><a href='" + config.paths.github_repository + "'><img src=''>" + config.paths.webpage + "</a><span>"
+        "<span><a href='" + config.paths.github_repository + "'><img src=''>" + config.paths.github_repository + "</a><span>"
     ;
 
 
@@ -35,7 +35,7 @@ function NgControllerFinder(eventListenerName){
 NgControllerFinder.prototype.createPlugin = function(){
 	
             var html =  "<div id='option-" + config.options_id.angular + "' class='options center-element'><img src='" + config.img.angular + "' class='option-img'></div>" + 
-                        "<div id='option-"  + config.options_id.info +  "' class='options center-element'><img src='" + config.paths.ionic_icons + config.img.click + "'  class='option-img'></div>" +
+                        "<div id='option-"  + config.options_id.info +  "' class='options center-element'><img src='" + config.paths.ionic_icons + config.img.info + "'  class='option-img'></div>" +
                         "<div id='option-" + config.options_id.ng_controller_text + "' class='center-element'>Click the element to find its <b style='padding:0 4px;'> ng-controller </b> </div>" +
                         "<div id='option-" + config.options_id.close + "' class='options center-element'><img src='" + config.paths.ionic_icons + config.img.close + "'  class='option-img'></div>"
             ;
