@@ -28,8 +28,9 @@ function NgControllerFinder(eventListenerName){
 }
 
 NgControllerFinder.prototype.addInfoText = function () {
-    // document.getElementById('option-ng-controller-text').innerHTML = 'aaaaaaaaaaaaaaaaaaa';
-    // document.getElementById('option-ng-controller-text').innerHTML = 'aaaaaaaa';
+    var infoButtomHtml = "<span><a href='" + config.paths.webpage + "'><img>" + config.paths.webpage + "</a><span><br>" + "<span><a href='" + config.paths.github_repository + "'><img>" + config.paths.github_repository + "</a><span>"
+        ;
+    document.getElementById('option-ng-controller-text').innerHTML = infoButtomHtml;
 };
 
 NgControllerFinder.prototype.createPlugin = function(){
@@ -171,13 +172,15 @@ function wait_for_script_load(look_for, callback) {
 
     //Listeners
     closeBtn.addEventListener('click', ngControllerFinder.removePlugin);
-    // infoBtn.addEventListener('click', ngControllerFinder.addInfoText);
+    infoBtn.addEventListener('click', ngControllerFinder.addInfoText);
 
+    /*
     infoBtn.addEventListener('click', function(){
         var infoButtomHtml = "<span><a href='" + config.paths.webpage + "'><img>" + config.paths.webpage + "</a><span><br>" + "<span><a href='" + config.paths.github_repository + "'><img>" + config.paths.github_repository + "</a><span>"
         ;
         document.getElementById('option-ng-controller-text').innerHTML = infoButtomHtml;
     });
+    */
 
 
 
