@@ -35,7 +35,7 @@ NgControllerFinder.prototype.addListener = function (){
                 console.log('------------------------'+e.target.getAttribute('id'));
                 
                 //else
-                var a = findUpTag(e.target);
+                var a = this.getParentNgController(e.target);
                 if (a){ 
                     document.getElementById('option-ng-controller-text').innerHTML = a.getAttribute('ng-controller');
                     console.log('ng-controller: ' + a.getAttribute('ng-controller'));
@@ -46,6 +46,31 @@ NgControllerFinder.prototype.addListener = function (){
         });
 }
 
+NgControllerFinder.prototype.getParentNgController = function(el) {
+        var all = '';
+        var found = false;
+        
+        while (el.parentNode) {
+            el = el.parentNode;
+            try{
+                if (el != document && el.hasAttribute('ng-controller') == true){
+                    if(all == ''){
+                        all = 'ng-controller';
+                        console.log('ng-controller: ' + el.getAttribute('ng-controller'));
+                        found = true;
+                        return el;
+                    }
+                }else{
+                    console.log('ng-controller: ' + 'NOT FOUND');
+                }
+            }catch(ex){
+                console.log("Exception");
+                console.log(el);
+            }
+        }
+        
+        return null;
+    }
 
 
 
@@ -135,31 +160,7 @@ function wait_for_script_load(look_for, callback) {
             
 
     
-    function findUpTag(el) {
-        var all = '';
-        var found = false;
-        
-        while (el.parentNode) {
-            el = el.parentNode;
-            try{
-                if (el != document && el.hasAttribute('ng-controller') == true){
-                    if(all == ''){
-                        all = 'ng-controller';
-                        console.log('ng-controller: ' + el.getAttribute('ng-controller'));
-                        found = true;
-                        return el;
-                    }
-                }else{
-                    console.log('ng-controller: ' + 'NOT FOUND');
-                }
-            }catch(ex){
-                console.log("Exception");
-                console.log(el);
-            }
-        }
-        
-        return null;
-    }
+
     
 
 })();
