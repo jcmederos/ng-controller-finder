@@ -66,7 +66,7 @@ function wait_for_script_load(look_for, callback) {
 
 (function(){
     
-            var html =  "<div id='option-" + config.options_id.angular + "' class='options angular-not-found center-element'><img src='" + config.img_src.angular + "' class='option-img'></div>" + 
+            var html =  "<div id='option-" + config.options_id.angular + "' class='options angular-not-found center-element'><img src='" + config.img.angular + "' class='option-img'></div>" + 
                         "<div id='option-"  + config.options_id.tap +  "' class='options angular-not-found center-element'><img src='" + config.paths.ionic_icons + config.img.click + "'  class='option-img'></div>" +
                         "<div id='option-" + config.options_id.ng_controller_text + "' class='center-element'>Click the element to find its <b style='padding:0 4px;'> ng-controller </b> </div>" +
                         "<div id='option-" + config.options_id.close + "' class='options center-element'><img src='" + config.paths.ionic_icons + config.img.close + "'  class='option-img'></div>"
