@@ -25,8 +25,7 @@ var config = {
 function NgControllerFinder(eventListenerName){
 	this.eventListenerName = eventListenerName;
     this.infoButtomHtml =
-        "<span><a href='" + config.paths.webpage + "'><img>" + config.paths.webpage + "</a><span><br>" +
-        "<span><a href='" + config.paths.github_repository + "'><img>" + config.paths.github_repository + "</a><span>"
+        "<span><a href='" + config.paths.webpage + "'>" + config.paths.webpage + "</a><span><br>"
     ;
 
 }
