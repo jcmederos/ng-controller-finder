@@ -24,11 +24,11 @@ var config = {
 
 function NgControllerFinder(eventListenerName){
 	this.eventListenerName = eventListenerName;
-    this.infoButtomHtml = config.paths.webpage;
+    // this.infoButtomHtml = config.paths.webpage;
 }
 
 NgControllerFinder.prototype.addInfoText = function () {
-    document.getElementById('option-ng-controller-text').innerHTML = this.infoButtomHtml;
+    document.getElementById('option-ng-controller-text').innerHTML = 'aaaaaaaaaaaaaaaaaaa';
     // document.getElementById('option-ng-controller-text').innerHTML = 'aaaaaaaa';
 };
 
