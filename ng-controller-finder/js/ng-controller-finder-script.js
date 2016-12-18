@@ -3,7 +3,7 @@ var config = {
 	paths : {
 		webpage : '//jcmederos.github.io/ng-controller-finder/',
 		ng_controller_finder : '//jcmederos.github.io/ng-controller-finder/ng-controller-finder/',
-		ionic_icons : 'jcmederos.github.io/ng-controller-finder/bower_components/Ionicons/png/512/'
+		ionic_icons : '//jcmederos.github.io/ng-controller-finder/bower_components/Ionicons/png/512/'
 	},
 	css_path : '//jcmederos.github.io/ng-controller-finder/ng-controller-finder/ng-controller-finder/css/',
 	ng_controller_finder_styles : 'ng-controller-finder.css',
