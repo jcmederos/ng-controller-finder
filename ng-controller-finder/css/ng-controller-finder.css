@@ -1,0 +1,58 @@
+#closest-ng-controller{
+    background: white;
+    height: 40px;
+    width: 50%;
+    z-index: 99999;
+    padding: 2px 0;
+    
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    
+    background:black;
+}
+
+#closest-ng-controller div{
+   float: left;
+}
+
+
+#closest-ng-controller .options:hover{
+    cursor: pointer;
+}
+
+#closest-ng-controller .options{
+    width:  5%;
+    height: 90%;
+}
+
+#closest-ng-controller .options img{
+    height: 100%;
+    margin:auto;
+}
+
+.angular-not-found{
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+
+#closest-ng-controller #option-ng-controller-text{
+    min-width:  85%;
+    height: 100%;
+    
+    background:grey; 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.center-element{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
