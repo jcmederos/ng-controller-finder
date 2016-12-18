@@ -23,17 +23,25 @@ NgControllerFinder.prototype.createPlugin = function(){
 
 
 
-NgControllerFinder.prototype.addListener = function (){
+NgControllerFinder.prototype.addPluginListener = function (){
         
         window.addEventListener(this.eventListenerName, this.pluginListener);
 
 };
 
-NgControllerFinder.prototype.removeListener = function (){
+NgControllerFinder.prototype.removePluginListener = function (){
 
     window.removeEventListener(this.eventListenerName, this.pluginListener);
 
 };
+
+NgControllerFinder.prototype.removePlugin = function (){
+
+   //TODO implement this
+
+};
+
+
 
 
 NgControllerFinder.prototype.pluginListener = function(e){
@@ -150,14 +158,22 @@ function wait_for_script_load(look_for, callback) {
         
 	if(window.angular){
 		console.log("ng-closest-controller : ANGULAR was loaded");
-		ngControllerFinder.addListener();
+		ngControllerFinder.addPluginListener();
 	}else{
 		console.log("ng-closest-controller : ANGULAR NOT loaded");
 		document.getElementById('option-ng-controller-text').innerHTML = 'Angular is not loaded';
 		document.getElementById('option-ng-controller-text').style.color = 'red';
 	}
 
-    ngControllerFinder.addListener();
+    ngControllerFinder.addPluginListener();
+
+    var closeBtn = document.querySelectorAll('#option-close img')[0];
+
+
+    //Listeners
+    closeBtn.addEventListener('click', ngControllerFinder.removePluginListener);
+
+
 
 })();
 
